@@ -1,0 +1,74 @@
+task_name: DUAL_HOLE_OUT_PEG
+task_message:
+- Remove the hole out the peg totally.
+- Move the hole out the peg.
+- Disassemble the hole and the peg.
+physics_dt: 120
+rendering_dt: 120
+stage_units: 1.0 # stage units per meter 
+max_episode_steps: 2000 # maximum number of steps per episode
+image_size: # image size for camera
+- 128
+- 128
+stand_position: # position of the robot when it stands
+-   - 0.0
+    - 0.0
+    - 0.62
+robot:
+    joint_positions: # joint positions of the robot when it stands, only robot no gripper
+    - 0.09013208
+    - -0.526969
+    - -0.09634338
+    - -2.5128212
+    - -0.04378112
+    - 1.9551778
+    - 0.8178173
+    gripper_state: open
+gripper_opened_position:
+- 0.05
+- 0.05
+table_height: 1.03 # height of the table from the ground
+objects_to_manipulate: # objects to manipulate in the environment, it is a dict
+    object_1:
+        name: dual_hole
+        mass: 0.001
+        usd_path: /task_assets/DUAL_HOLE_PEG/dual_hole.usdc
+        interact_object: dual_peg
+        offset_with_interact_obj: # offset between the object and the interact object, a list of arrays, first is position and second is orientation(in euler angles).
+        -   - 0.0
+            - 0.0
+            - 0.0
+        -   - 0.0
+            - 0.0
+            - 0.0
+        target_area: # target area to put object when removed, a list type
+        - 0.6
+        - -0.2
+        success_criteria: # success criteria for the task, it is a list of arrays, first array means position error, second array means force error(if there is a contact force )
+        -   - 0.1
+            - 0.1
+            - 0.02
+        -   - 0.0001
+objects_to_interact:
+    object_1:
+        name: dual_peg
+        area:
+        -   - 0.7
+            - 0.2
+        -   - 0.6
+            - 0.1
+        offset:
+        - 0.0
+        - 0.0
+        - 0.0
+        height: 0.17
+        orientation:
+        -   - 0.0
+            - 0.0
+            - 0.0
+        -   - 0.0
+            - 0.0
+            - -40.0
+        mass: 100.0
+        usd_path: /task_assets/DUAL_HOLE_PEG/dual_peg.usdc
+        track_contact_forces: true

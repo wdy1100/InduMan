@@ -1,0 +1,89 @@
+task_name: DUAL_HOLE_IN_PEG
+task_message:
+- Put the hole in the peg totally.
+- Move the hole to the peg.
+- Assemble the hole in the peg.
+physics_dt: 120
+rendering_dt: 120
+stage_units: 1.0
+max_episode_steps: 2000
+image_size:
+- 128
+- 128
+stand_position:
+-   - 0.0
+    - 0.0
+    - 0.62
+robot:
+    joint_positions:
+    - 0.09013208
+    - -0.526969
+    - -0.09634338
+    - -2.5128212
+    - -0.04378112
+    - 1.9551778
+    - 0.8178173
+    gripper_state: open
+gripper_opened_position:
+- 0.05
+- 0.05
+table_height: 1.03
+support:
+    need: True
+    height: 0.015
+    size: 0.015
+    scale:
+    - 1.0
+    - 1.0
+    - 1.0
+objects_to_manipulate:
+    object_1:
+        name: dual_hole
+        area:
+        -   - 0.6
+            - -0.1
+        -   - 0.5
+            - -0.2
+        offset:
+        - 0.0
+        - 0.0
+        - 0.0
+        height: 0.001
+        orientation:
+        -   - 0.0
+            - 0.0
+            - 0.0
+        -   - 0.0
+            - 0.0
+            - 0.0
+        mass: 0.001
+        usd_path: /task_assets/DUAL_HOLE_PEG/dual_hole.usdc
+        interact_object: dual_peg
+        success_criteria:
+        -   - 0.005
+            - 0.005
+            - 0.005
+        -   - 0.0001
+objects_to_interact:
+    object_1:
+        name: dual_peg
+        area:
+        -   - 0.6
+            - 0.2
+        -   - 0.5
+            - 0.1
+        offset:
+        - 0.0
+        - 0.0
+        - 0.0
+        height: 0.17
+        orientation:
+        -   - 0.0
+            - 0.0
+            - 0.0
+        -   - 0.0
+            - 0.0
+            - 0.0
+        mass: 100.0
+        usd_path: /task_assets/DUAL_HOLE_PEG/dual_peg.usdc
+        track_contact_forces: true

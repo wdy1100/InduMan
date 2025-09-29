@@ -1,0 +1,75 @@
+task_name: USB_DISASSEMBLE
+task_message:
+- Disassemble the USB connnector smoothly.
+- Move the usb male out of the usb female smoothly.
+- Remove the usb male from the usb female.
+task_setting_suggestion: This task aims to disassemble the usb connector.
+physics_dt: 120
+rendering_dt: 120
+stage_units: 1.0
+max_episode_steps: 1000
+image_size:
+- 128
+- 128
+stand_position:
+-   - 0.0
+    - 0.0
+    - 0.62
+robot:
+    joint_positions:
+    - 0.09013208
+    - -0.526969
+    - -0.09634338
+    - -2.5128212
+    - -0.04378112
+    - 1.9551778
+    - 0.8178173
+    gripper_state: open
+gripper_opened_position:
+- 0.02
+- 0.02
+table_height: 1.03
+objects_to_manipulate:
+    object_1:
+        name: usb_male
+        mass: 0.001
+        usd_path: /task_assets/USB_CONNECTOR/USB_male.usdc
+        interact_object: usb_female
+        offset_with_interact_obj:
+        -   - 0.0002
+            - 0.0
+            - 0.0
+        -   - 0.0
+            - 0.0
+            - 0.0
+        target_area:
+        - 0.6
+        - -0.2
+        success_criteria:
+        -   - 0.1
+            - 0.1
+            - 0.003
+        -   - 0.0001
+objects_to_interact:
+    object_1:
+        name: usb_female
+        area:
+        -   - 0.6
+            - 0.05
+        -   - 0.55
+            - 0.0
+        offset:
+        - 0.0
+        - 0.0
+        - 0.0
+        height: 0.025
+        orientation:
+        -   - 0.0
+            - 0.0
+            - 0.0
+        -   - 0.0
+            - 0.0
+            - 0.0
+        mass: 100.0
+        usd_path: /task_assets/USB_CONNECTOR/USB_female.usdc
+        track_contact_forces: true

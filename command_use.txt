@@ -1,0 +1,9 @@
+运行一个独立python文件, isaac sim文件夹目录下打开终端：：
+1 ./isaac-sim.sh -p wdy_file/scene_setup1.py
+2 ./python.sh wdy_file/scene_setup1.py 第一种方式不会找不到需要的库文件，第二种方式可能会出现找不到库文件的问题
+
+想要安装第三方python库，可以进入isaacsim根目录，执行：
+./python.sh -m pip install pygame
+
+想要更新pip，可以执行：
+/home/wdy02/software/isaacsim/kit/python/bin/python3 -m pip install --upgrade pip
