@@ -1,6 +1,6 @@
 # InduMan: A Benchmark for Long-Horizon, Contact-Rich Robotic Manipulation in Industrial
 
-   A novel dataset, termed InduMan, is introduced for robotic manipulation in industrial environments, with an emphasis on long-horizon and contact-rich tasks. The dataset is built upon the NIST#1 assembly board and real industrial components,encompassing 26 assembly and disassembly tasks that involve fine alignment and complex force interactions.
+   A novel dataset, termed InduMan, is introduced for robotic manipulation in industrial environments, with an emphasis on long-horizon and contact-rich tasks. The dataset is built upon the NIST#1 assembly board and real industrial components,encompassing 26 assembly and disassembly tasks that involve fine alignment and complex force interactions.  
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ Isaac Sim: [https://github.com/isaac-sim/IsaacSim](https://github.com/isaac-sim/
 
 Isaac Lab: [https://github.com/isaac-sim/IsaacLab](https://github.com/isaac-sim/IsaacLab)
 
-We adopt the binary installation method. Additionally, it is recommended to download the assets to your local device and remember to modify the path([Tips for assets installation](https://docs.isaacsim.omniverse.nvidia.com/5.0.0/installation/install_faq.html)).
+We adopt the binary installation method. Additionally, it is recommended to download the assets to your local device and remember to modify the path([Tips for assets installation](https://docs.isaacsim.omniverse.nvidia.com/5.0.0/installation/install_faq.html)).  
 
 ## Usage
 
@@ -25,9 +25,9 @@ Once you have installed Isaac Lab, see how to link Sim and Lab: [https://isaac-s
 
 make a python environment `isaaclab.sh -c name of your env`
 
-Normally, you can put this repo in your new project generated using [External project or Internal task](https://isaac-sim.github.io/IsaacLab/main/source/overview/own-project/template.html), or you can put it under Isaac Lab folder, which looks like IsaacLab(or your name of Isaac Lab)/InduMan
+Normally, you can put this repo in your new project generated using [External project or Internal task](https://isaac-sim.github.io/IsaacLab/main/source/overview/own-project/template.html), or you can put it under Isaac Lab folder, which looks like IsaacLab(or your name of Isaac Lab)/InduMan  
 
-### Normal usage of scene:
+### Normal usage of scene:  
 
 Use code below to collect some json files for replay.
 
@@ -52,7 +52,7 @@ Before training a agent for implicit Q-learning, convert the h5 data collected b
 You can check code in InduMan/implicit_q_learning/extract_feature.py
 
 ```python
-python InduMan/implicit_q_learning/train_offline.py --env_name (choose one from task_config) --env_type (according to your task) --data_path (where your data put)
+python InduMan/implicit_q_learning/train_offline.py --env_name (choose one from task_config) --env_type (according to your task) --data_path (where your data put)  
 ```
 
 ### Try behavioral cloning
@@ -62,7 +62,14 @@ Before training a agent for behavioral cloning, convert the h5 data collected by
 You can check code in InduMan/utils/convert_h5_pkl.py
 
 ```python
-python InduMan/robot_learning/run_BC.py --encoder_type=r3m --demo_path=(where does your pkl data put) --log_root_dir=(where do the results you want to put) --env (choose) --env_type (according to your env)
+python InduMan/robot_learning/run_BC.py --encoder_type=r3m --demo_path=(where does your pkl data put) --log_root_dir=(where do the results you want to put) --env (choose) --env_type (according to your env)  
 ```
 
-Before training a agent for implicit Q-learning, convert the h5 data collected by the environment into the required format.
+Before training a agent for implicit Q-learning, convert the h5 data collected by the environment into the required format.  
+### Datasets
+The datasets we created are divided into those used in the experiment and those for all tasks, which are respectively stored on huggingface and modelscope.
+
+[Datasets used in experiment](https://huggingface.co/datasets/wdy0123/InduMan),  
+
+[The rest datasets we collected](https://www.modelscope.cn/datasets/wdy0123/InduMan).
+
