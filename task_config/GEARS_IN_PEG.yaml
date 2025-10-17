@@ -1,0 +1,143 @@
+task_name: GEARS_IN_PEG
+task_message:
+- Put the gears in the peg totally.
+- Move the gears to the peg.
+- Assemble the gears in the peg.
+physics_dt: 120
+rendering_dt: 120
+stage_units: 1.0 #  in meters
+max_episode_steps: 5000
+image_size:
+- 128
+- 128
+stand_position:
+-   - 0.0
+    - 0.0
+    - 0.62
+robot:
+    joint_positions: # joint positions in radians for each joint(only robot no gripper) default state
+    - 0.09013208
+    - -0.526969
+    - -0.09634338
+    - -2.5128212
+    - -0.04378112
+    - 1.9551778
+    - 0.8178173
+    gripper_state: open
+gripper_opened_position:
+- 0.05
+- 0.05
+table_height: 1.03
+support:
+    need: False
+    height: 0.015
+    size: 0.015
+    scale:
+    - 1.0
+    - 1.0
+    - 1.0
+objects_to_manipulate:
+    object_1:
+        name: big_gear
+        area: # Area in meters for random placement
+        -   - 0.5
+            - 0.05
+        -   - 0.45
+            - -0.1
+        offset:
+        - 0.0
+        - 0.0
+        - 0.0  # offset in meters, distance from next object in x axis
+        height: 0.001 # Height in meters, distance from the table surface
+        orientation: # euler angle in degrees for random orientation
+        -   - 0.0
+            - 0.0
+            - 0.0
+        -   - 0.0
+            - 0.0
+            - 0.0
+        mass: 0.001  # mass in kg
+        usd_path: /task_assets/GEARS/factory_gear_large.usd #/task_assets/GEARS_OUT_PEG/factory_gear_large.usdc
+        interact_object: gear_base
+        success_criteria:
+        -   - 0.1 #success criteria for position error in meters in gears_in_peg task, position(x,y) error can not be used, so we use z error instead
+            - 0.1
+            - 0.001
+        -   - 0.0001 #success criteria for force error in Newtons
+    object_2:
+        name: middle_gear
+        area:
+        -   - 0.6
+            - -0.05
+        -   - 0.55
+            - -0.1
+        offset:
+        - 0.05
+        - 0.0
+        - 0.0
+        height: 0.001
+        orientation:
+        -   - 0.0
+            - 0.0
+            - 0.0
+        -   - 0.0
+            - 0.0
+            - 0.0
+        mass: 0.001
+        usd_path: /task_assets/GEARS/factory_gear_medium.usd #/task_assets/GEARS_OUT_PEG/factory_gear_medium.usdc
+        interact_object: gear_base
+        success_criteria:
+        -   - 0.1
+            - 0.1
+            - 0.001
+        -   - 0.0001
+    object_3:
+        name: small_gear
+        area:
+        -   - 0.7
+            - -0.05
+        -   - 0.65
+            - -0.1
+        offset:
+        - 0.05
+        - 0.0
+        - 0.0
+        height: 0.001
+        orientation:
+        -   - 0.0
+            - 0.0
+            - 0.0
+        -   - 0.0
+            - 0.0
+            - 0.0
+        mass: 0.001
+        usd_path: /task_assets/GEARS/factory_gear_small.usd #/task_assets/GEARS_OUT_PEG/factory_gear_small.usdc
+        interact_object: gear_base
+        success_criteria:
+        -   - 0.1
+            - 0.1
+            - 0.001
+        -   - 0.0001
+objects_to_interact:
+    object_1:
+        name: gear_base
+        area:
+        -   - 0.6
+            - 0.1
+        -   - 0.5
+            - 0.05
+        offset:
+        - 0.0
+        - 0.0
+        - 0.0
+        height: 0.003
+        orientation:
+        -   - 0.0
+            - 0.0
+            - 0.0
+        -   - 0.0
+            - 0.0
+            - 0.0
+        mass: 100.0  # mass in kg, set a large mass to make it unmovable
+        usd_path: /task_assets/GEARS/factory_gear_base.usd #/task_assets/GEARS_OUT_PEG/factory_gear_base.usdc
+        track_contact_forces: true # whether to track contact forces on this object

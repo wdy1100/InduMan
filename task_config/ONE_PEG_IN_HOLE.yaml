@@ -1,0 +1,89 @@
+task_name: ONE_PEG_IN_HOLE
+task_message:
+- Put the peg in the hole totally.
+- Move the peg to the hole.
+- Assemble the peg in the hole.
+physics_dt: 120
+rendering_dt: 120
+stage_units: 1.0
+max_episode_steps: 1000
+image_size:
+- 128
+- 128
+stand_position:
+-   - 0.0
+    - 0.0
+    - 0.62
+robot:
+    joint_positions:
+    - 0.09013208
+    - -0.526969
+    - -0.09634338
+    - -2.5128212
+    - -0.04378112
+    - 1.9551778
+    - 0.8178173
+    gripper_state: open
+gripper_opened_position:
+- 0.05
+- 0.05
+table_height: 1.03
+support:
+    need: False
+    height: 0.015
+    size: 0.015
+    scale:
+    - 1.0
+    - 1.0
+    - 1.0
+objects_to_manipulate:
+    object_1:
+        name: peg
+        area:
+        -   - 0.6
+            - 0.0
+        -   - 0.4
+            - -0.1
+        offset:
+        - 0.0
+        - 0.0
+        - 0.0
+        height: 0.001
+        orientation:
+        -   - 0.0
+            - 0.0
+            - 180.0
+        -   - 0.0
+            - 0.0
+            - 0.0
+        mass: 0.01
+        usd_path: /task_assets/RGOCG8mm/factory_peg_8mm.usd
+        interact_object: hole
+        success_criteria:
+        -   - 0.005
+            - 0.005
+            - 0.005
+        -   - 0.0005
+objects_to_interact:
+    object_1:
+        name: hole
+        area:
+        -   - 0.6
+            - 0.1
+        -   - 0.5
+            - 0.005
+        offset:
+        - 0.0
+        - 0.0
+        - 0.0
+        height: 0.0005
+        orientation:
+        -   - 0.0
+            - 0.0
+            - 0.0
+        -   - 0.0
+            - 0.0
+            - 0.0
+        mass: 100.0
+        usd_path: /task_assets/RGOCG8mm/factory_hole_8mm.usd
+        track_contact_forces: true

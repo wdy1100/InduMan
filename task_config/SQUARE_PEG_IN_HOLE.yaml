@@ -1,0 +1,90 @@
+task_name: SQUARE_PEG_IN_HOLE
+task_message:
+- Assemble the peg to the hole smoothly.
+- Move the peg to the hole smoothly.
+- Put the peg in the hole smoothly.
+task_setting_suggestion: This task aims to assemble the peg to the hole.
+physics_dt: 120
+rendering_dt: 120
+stage_units: 1.0
+max_episode_steps: 1000
+image_size:
+- 128
+- 128
+stand_position:
+-   - 0.0
+    - 0.0
+    - 0.62
+robot:
+    joint_positions:
+    - 0.09013208
+    - -0.526969
+    - -0.09634338
+    - -2.5128212
+    - -0.04378112
+    - 1.9551778
+    - 0.8178173
+    gripper_state: open
+gripper_opened_position:
+- 0.05
+- 0.05
+table_height: 1.03
+support:
+    need: false
+    height: 0.0
+    size: 0.0
+    scale:
+    - 1.0
+    - 1.0
+    - 1.0
+objects_to_manipulate:
+    object_1:
+        name: peg
+        area:
+        -   - 0.5
+            - -0.05
+        -   - 0.45
+            - -0.1
+        offset:
+        - 0.0
+        - 0.0
+        - 0.0
+        height: 0.001
+        orientation:
+        -   - 0.0
+            - 0.0
+            - 0.0
+        -   - 0.0
+            - 0.0
+            - 0.0
+        mass: 0.001
+        usd_path: /task_assets/KET8mm/KET8_peg.usdc
+        interact_object: hole
+        success_criteria:
+        -   - 0.002
+            - 0.002
+            - 0.001
+        -   - 0.0001
+objects_to_interact:
+    object_1:
+        name: hole
+        area:
+        -   - 0.6
+            - 0.1
+        -   - 0.5
+            - 0.0
+        offset:
+        - 0.0
+        - 0.0
+        - 0.0
+        height: 0.001
+        orientation:
+        -   - 0.0
+            - 0.0
+            - 0.0
+        -   - 0.0
+            - 0.0
+            - 0.0
+        mass: 100.0
+        usd_path: /task_assets/KET8mm/KET8_hole.usdc
+        track_contact_forces: true
